@@ -3,12 +3,14 @@ package ru.yandex.mrhellko.filmorate.model;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Data
-public class User {
+@Getter
+@Setter
+public class User implements LongIdEntity {
     private Long id;
 
     @Email

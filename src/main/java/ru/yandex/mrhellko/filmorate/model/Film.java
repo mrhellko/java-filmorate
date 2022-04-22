@@ -1,13 +1,15 @@
 package ru.yandex.mrhellko.filmorate.model;
 
 import jakarta.validation.constraints.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import ru.yandex.mrhellko.filmorate.system.validation.After;
 
 import java.time.LocalDate;
 
-@Data
-public class Film {
+@Setter
+@Getter
+public class Film implements LongIdEntity{
     private Long id;
 
     @NotBlank
