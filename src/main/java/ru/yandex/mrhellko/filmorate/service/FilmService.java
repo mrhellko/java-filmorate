@@ -5,20 +5,19 @@ import org.springframework.stereotype.Service;
 import ru.yandex.mrhellko.filmorate.model.Film;
 import ru.yandex.mrhellko.filmorate.repository.film.FilmRepository;
 import ru.yandex.mrhellko.filmorate.system.crud.service.AbstractCrudService;
-import ru.yandex.mrhellko.filmorate.system.crud.service.CrudService;
 
 @Service
-public class FilmService extends AbstractCrudService<Film, FilmRepository> implements CrudService<Film> {
+public class FilmService extends AbstractCrudService<Film, FilmRepository> {
 
-    private final FilmRepository filmStorage;
+    private final FilmRepository filmRepository;
 
     @Autowired
-    public FilmService(FilmRepository filmStorage) {
-        this.filmStorage = filmStorage;
+    public FilmService(FilmRepository filmRepository) {
+        this.filmRepository = filmRepository;
     }
 
     @Override
     protected FilmRepository getRepository() {
-        return filmStorage;
+        return filmRepository;
     }
 }
