@@ -6,7 +6,7 @@ Content-Type: application/json
   "name": "Name",
   "description": "Description",
   "releaseDate": "1900-01-01",
-  "duration": -1000
+  "duration": 1000
 }
 
 ###
