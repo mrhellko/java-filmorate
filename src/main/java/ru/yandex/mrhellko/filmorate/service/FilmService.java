@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.yandex.mrhellko.filmorate.model.Film;
 import ru.yandex.mrhellko.filmorate.model.User;
+import ru.yandex.mrhellko.filmorate.model.exception.NotFoundException;
 import ru.yandex.mrhellko.filmorate.repository.film.FilmRepository;
 import ru.yandex.mrhellko.filmorate.system.crud.service.AbstractCrudService;
 
@@ -33,7 +34,8 @@ public class FilmService extends AbstractCrudService<Film, FilmRepository> {
 
     public void unlike(long userId, long filmId) {
         Film film = filmRepository.findById(filmId);
-        film.getWhoLiked().remove(userId);
+        boolean deleted = film.getWhoLiked().remove(userId);
+        if (!deleted) throw new NotFoundException("Пользователь " + userId + " не ставил лайк на фильм " + filmId);
         filmRepository.save(film);
     }
 
@@ -42,8 +44,9 @@ public class FilmService extends AbstractCrudService<Film, FilmRepository> {
             count = 10;
         }
         return filmRepository.getAll().stream()
-                .sorted(Comparator.comparingInt(film -> film.getWhoLiked().size()))
-                .toList()
-                .subList(0, count);
+                //После добавления reversed Java перестает понимать что film это Film
+                .sorted(Comparator.comparingInt((Film film) -> film.getWhoLiked().size()).reversed())
+                .limit(count)
+                .toList();
     }
 }

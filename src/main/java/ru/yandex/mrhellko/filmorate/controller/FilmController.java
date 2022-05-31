@@ -1,6 +1,7 @@
 package ru.yandex.mrhellko.filmorate.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
 import ru.yandex.mrhellko.filmorate.model.Film;
 import ru.yandex.mrhellko.filmorate.service.FilmService;
@@ -32,18 +33,18 @@ public class FilmController extends AbstractCrudController<Film, FilmService> {
         return idProvider;
     }
 
-    @PutMapping("/films/{filmId}/like/{userId}")
+    @PutMapping("/{filmId}/like/{userId}")
     public void like(@PathVariable Long filmId, @PathVariable Long userId) {
         filmService.like(userId, filmId);
     }
 
-    @DeleteMapping("/films/{filmId}/like/{userId}")
+    @DeleteMapping("/{filmId}/like/{userId}")
     public void unlike(@PathVariable Long filmId, @PathVariable Long userId) {
         filmService.unlike(userId, filmId);
     }
 
-    @GetMapping("/films/popular")
-    public List<Film> popular(@RequestParam Integer count) {
+    @GetMapping("/popular")
+    public List<Film> popular(@RequestParam @Nullable Integer count) {
         return filmService.top(count);
     }
 }

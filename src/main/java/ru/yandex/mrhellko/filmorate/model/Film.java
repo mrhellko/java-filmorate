@@ -10,7 +10,8 @@ import java.util.Set;
 
 @Setter
 @Getter
-public class Film implements LongIdEntity{
+public class Film implements LongIdEntity {
+
     private Long id;
 
     @NotBlank

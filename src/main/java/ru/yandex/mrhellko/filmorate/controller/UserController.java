@@ -32,22 +32,22 @@ public class UserController extends AbstractCrudController<User, UserService> {
         return idProvider;
     }
 
-    @PutMapping("/users/{id}/friends/{friendId}")
+    @PutMapping("/{id}/friends/{friendId}")
     public void addFriend(@PathVariable Long id, @PathVariable Long friendId) {
         userService.addFriend(id, friendId);
     }
 
-    @DeleteMapping("/users/{id}/friends/{friendId}")
+    @DeleteMapping("/{id}/friends/{friendId}")
     public void deleteFriend(@PathVariable Long id, @PathVariable Long friendId) {
         userService.deleteFriend(id, friendId);
     }
 
-    @GetMapping("/users/{id}/friends")
+    @GetMapping("/{id}/friends")
     public List<User> userFriends(@PathVariable Long id) {
         return userService.userFriends(id);
     }
 
-    @GetMapping("/users/{id}/friends/common/{otherId}")
+    @GetMapping("/{id}/friends/common/{otherId}")
     public List<User> commonFriends(@PathVariable Long id, @PathVariable Long otherId) {
         return userService.intersectFriends(id, otherId);
     }
