@@ -6,6 +6,7 @@ import lombok.Setter;
 import ru.yandex.mrhellko.filmorate.system.validation.After;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -24,10 +25,5 @@ public class Film implements LongIdEntity{
     @Positive
     private long duration;
 
-    public Film(String name, String description, LocalDate releaseDate, long duration) {
-        this.name = name;
-        this.description = description;
-        this.releaseDate = releaseDate;
-        this.duration = duration;
-    }
+    private Set<Long> whoLiked;
 }

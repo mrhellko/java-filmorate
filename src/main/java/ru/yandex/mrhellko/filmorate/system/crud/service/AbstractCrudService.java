@@ -18,4 +18,14 @@ public abstract class AbstractCrudService<T extends LongIdEntity, R extends Crud
     public Collection<T> getAll() {
         return getRepository().getAll();
     }
+
+    @Override
+    public T getEntityById(Long id) {
+        return getRepository().findById(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        getRepository().delete(id);
+    }
 }

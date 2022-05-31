@@ -25,7 +25,7 @@ public abstract class AbstractInMemoryCrudRepository<T extends LongIdEntity> imp
     }
 
     @Override
-    public void delete(T entity) {
-        storage.remove(entity.getId());
+    public void delete(long id) {
+        storage.remove(id);
     }
 }

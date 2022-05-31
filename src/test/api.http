@@ -25,6 +25,9 @@ Content-Type: application/json
 GET localhost:8080/films
 
 ###
+DELETE localhost:8080/films/1
+
+###
 POST localhost:8080/users
 Content-Type: application/json
 

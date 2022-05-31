@@ -8,4 +8,8 @@ public interface CrudService<T extends LongIdEntity> {
     void save(T entity);
 
     Collection<T> getAll();
+
+    T getEntityById(Long id);
+
+    void delete(Long id);
 }
