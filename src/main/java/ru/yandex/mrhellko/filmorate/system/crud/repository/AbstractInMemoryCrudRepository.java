@@ -1,6 +1,7 @@
 package ru.yandex.mrhellko.filmorate.system.crud.repository;
 
 import ru.yandex.mrhellko.filmorate.model.LongIdEntity;
+import ru.yandex.mrhellko.filmorate.model.exception.NotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,10 @@ public abstract class AbstractInMemoryCrudRepository<T extends LongIdEntity> imp
 
     @Override
     public T findById(long id) {
+        T entity = storage.get(id);
+        if (entity == null) {
+            throw new NotFoundException("Не найдена сущность с id = " + id);
+        }
         return storage.get(id);
     }
 
@@ -26,6 +31,9 @@ public abstract class AbstractInMemoryCrudRepository<T extends LongIdEntity> imp
 
     @Override
     public void delete(long id) {
-        storage.remove(id);
+        T prevValue = storage.remove(id);
+        if (prevValue == null) {
+            throw new NotFoundException("Не найдена сущность с id = " + id);
+        }
     }
 }

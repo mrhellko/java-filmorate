@@ -25,7 +25,7 @@ public class UserService extends AbstractCrudService<User, UserRepository> {
         return userRepository;
     }
 
-    void addFriend(long userId1, long userId2) {
+    public void addFriend(long userId1, long userId2) {
         User user1 = userRepository.findById(userId1);
         User user2 = userRepository.findById(userId2);
         user1.getFriends().add(user2.getId());
@@ -34,7 +34,7 @@ public class UserService extends AbstractCrudService<User, UserRepository> {
         userRepository.save(user2);
     }
 
-    void deleteFriend(long userId1, long userId2) {
+    public void deleteFriend(long userId1, long userId2) {
         User user1 = userRepository.findById(userId1);
         User user2 = userRepository.findById(userId2);
         user1.getFriends().remove(user2.getId());
@@ -43,12 +43,17 @@ public class UserService extends AbstractCrudService<User, UserRepository> {
         userRepository.save(user2);
     }
 
-    List<User> intersectFriends(long userId1, long userId2) {
+    public List<User> intersectFriends(long userId1, long userId2) {
         User user1 = userRepository.findById(userId1);
         User user2 = userRepository.findById(userId2);
         Set<Long> intersection = new HashSet<>(user1.getFriends());
         intersection.retainAll(user2.getFriends());
         return intersection.stream().map(userRepository::findById).toList();
+    }
+
+    public List<User> userFriends(long userId) {
+        User user = userRepository.findById(userId);
+        return user.getFriends().stream().map(userRepository::findById).toList();
     }
 
 }

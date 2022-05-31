@@ -7,6 +7,8 @@ import ru.yandex.mrhellko.filmorate.service.FilmService;
 import ru.yandex.mrhellko.filmorate.system.IdProvider;
 import ru.yandex.mrhellko.filmorate.system.crud.controller.AbstractCrudController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/films")
 public class FilmController extends AbstractCrudController<Film, FilmService> {
@@ -28,5 +30,20 @@ public class FilmController extends AbstractCrudController<Film, FilmService> {
     @Override
     protected IdProvider getIdProvider() {
         return idProvider;
+    }
+
+    @PutMapping("/films/{filmId}/like/{userId}")
+    public void like(@PathVariable Long filmId, @PathVariable Long userId) {
+        filmService.like(userId, filmId);
+    }
+
+    @DeleteMapping("/films/{filmId}/like/{userId}")
+    public void unlike(@PathVariable Long filmId, @PathVariable Long userId) {
+        filmService.unlike(userId, filmId);
+    }
+
+    @GetMapping("/films/popular")
+    public List<Film> popular(@RequestParam Integer count) {
+        return filmService.top(count);
     }
 }
