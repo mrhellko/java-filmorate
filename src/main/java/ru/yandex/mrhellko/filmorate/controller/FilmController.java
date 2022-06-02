@@ -3,7 +3,7 @@ package ru.yandex.mrhellko.filmorate.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
-import ru.yandex.mrhellko.filmorate.model.Film;
+import ru.yandex.mrhellko.filmorate.model.film.Film;
 import ru.yandex.mrhellko.filmorate.service.FilmService;
 import ru.yandex.mrhellko.filmorate.system.IdProvider;
 import ru.yandex.mrhellko.filmorate.system.crud.controller.AbstractCrudController;

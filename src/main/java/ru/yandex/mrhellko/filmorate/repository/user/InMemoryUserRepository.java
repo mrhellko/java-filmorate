@@ -1,7 +1,7 @@
 package ru.yandex.mrhellko.filmorate.repository.user;
 
 import org.springframework.stereotype.Component;
-import ru.yandex.mrhellko.filmorate.model.User;
+import ru.yandex.mrhellko.filmorate.model.user.User;
 import ru.yandex.mrhellko.filmorate.system.crud.repository.AbstractInMemoryCrudRepository;
 
 import java.util.HashMap;

@@ -2,7 +2,7 @@ package ru.yandex.mrhellko.filmorate.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.yandex.mrhellko.filmorate.model.User;
+import ru.yandex.mrhellko.filmorate.model.user.User;
 import ru.yandex.mrhellko.filmorate.service.UserService;
 import ru.yandex.mrhellko.filmorate.system.IdProvider;
 import ru.yandex.mrhellko.filmorate.system.crud.controller.AbstractCrudController;
