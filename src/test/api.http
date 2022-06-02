@@ -6,7 +6,7 @@ Content-Type: application/json
   "name": "Name",
   "description": "Description",
   "releaseDate": "1900-01-01",
-  "duration": -1000
+  "duration": 1000
 }
 
 ###
@@ -23,6 +23,9 @@ Content-Type: application/json
 
 ###
 GET localhost:8080/films
+
+###
+DELETE localhost:8080/films/1
 
 ###
 POST localhost:8080/users
