@@ -2,8 +2,7 @@ package ru.yandex.mrhellko.filmorate.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.yandex.mrhellko.filmorate.model.Film;
-import ru.yandex.mrhellko.filmorate.model.User;
+import ru.yandex.mrhellko.filmorate.model.film.Film;
 import ru.yandex.mrhellko.filmorate.model.exception.NotFoundException;
 import ru.yandex.mrhellko.filmorate.repository.film.FilmRepository;
 import ru.yandex.mrhellko.filmorate.system.crud.service.AbstractCrudService;

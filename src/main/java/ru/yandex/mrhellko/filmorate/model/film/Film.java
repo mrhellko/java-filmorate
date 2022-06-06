@@ -1,8 +1,9 @@
-package ru.yandex.mrhellko.filmorate.model;
+package ru.yandex.mrhellko.filmorate.model.film;
 
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
+import ru.yandex.mrhellko.filmorate.model.LongIdEntity;
 import ru.yandex.mrhellko.filmorate.system.validation.After;
 
 import java.time.LocalDate;

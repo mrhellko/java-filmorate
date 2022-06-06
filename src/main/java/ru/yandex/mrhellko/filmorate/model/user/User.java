@@ -1,11 +1,11 @@
-package ru.yandex.mrhellko.filmorate.model;
+package ru.yandex.mrhellko.filmorate.model.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
+import ru.yandex.mrhellko.filmorate.model.LongIdEntity;
 
 import java.time.LocalDate;
 import java.util.Set;
